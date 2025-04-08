@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aop-reference-model/>
+<aop-reference-model>
+<aop-project name="hello"/>
+<aop-project name="aaa"/>
+<aop-project name="BeginTest"/>
+</aop-reference-model>

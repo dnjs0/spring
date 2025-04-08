@@ -1,5 +1,9 @@
+
+
 ## 프로젝트 생성
 - "hello" + Spring MVC Project > "com.test.hello" > Finish
+
+
 
 ## 현재 프로젝트 > 버전 ? > 수정해야 함
 - 자바 버전 > 11로 바꿔야함
@@ -7,3 +11,133 @@
 	- Project facets
 - 스프링 버전
 	- pom.xml
+
+
+	
+## STS3에서 스프링 프로젝트 실행하는 방법
+- Ctrl + F11 > (톰캣 시작 + 브라우저 실행(가상 주소 대입)) 사용안함
+- 서버 직접 실행 > 브라우저 직접 실행 > 주소 직접 입력
+
+
+
+## 학습 난이도
+1. Servlet/JSP : 	초반(쉬움) > 후반(어려움)
+2. Spring : 		초반(어려움) > 중간(쉬움) > 후반(어려움)
+
+
+## 라이브러리 vs 프레임워크
+- jQuery > 프레임워크
+- JDK > 프레임워크 + 라이브러리
+
+- 주체가 누구냐?
+	- 개발자(라이브러리)
+	- 환경(프레임워크)
+	
+	
+## Spring Framework
+- Spring
+- 자바 기반의 오픈 소스 애플리케이션 개발 프레임워크
+- 대규모(엔터프라이즈급) 애플리케이션 개발에 사용
+- EJB를 썼었음> 대한민국 공공기관 개발 > 스프링 사용 > 전자정부 표준프레임워크 사용
+
+
+## History
+- 1.0 : 2004년
+- 5.0 : 2017년
+- 6.0 : 2022년 > Java JDK 17이상 + 스프링 부트 3.0
+- 6.2.XX : 현재
+- 7.0 : 2025년 11월 예정
+
+
+
+## Spring Projects
+- Spring > 코어
+- Spring MVC
+- Spring AOP
+- Spring Data
+- Spring Security
+- Spring Boot
+- ...
+
+
+## 스프링 가장 중요한 것
+1. IoC, DI
+2. AOP
+3. 스프링 컨테이너
+
+
+
+
+## 스프링 프레임워크 구성 요소 > 주요 기술
+
+1. POJO 기반
+2. 의존성 주입 지원 (DI)****************************************
+3. 관점 지향 프로그래밍 지원 (AOP)***************************
+4. Spring MVC
+5. 레이아웃 지원(Tiles)
+6. 데이터베이스 연동(MyBatis)
+7. Spring Security
+8. 기타등등
+
+
+
+
+## Spring MVC Project 구조
+
+1. src/main/java
+	- 여태까지 사용하는 Java 소스 폴더
+	- 패키지 or 파일
+	
+2. src/main/resources
+	- Java 소스 파일 이외의 나머지 자원을 관리하는 폴더
+	- 스프링 관련된 여러가지 설정 파일들을 보관하는 용도 
+	
+3. src/test/java
+4. src/test/resources
+	- 단위 테스트용
+	
+5. JRE System Library
+	- JRE 라이브러리
+	
+6. Maven Dependencies
+	- 빌드 도구(Maven or Gradle)
+	- 프로젝트 생성 or 라이브러리 관리 or 빌드 or 배포
+	- 수업 > 라이브러리 관리
+	
+7. src
+	- 7.1 webapp
+		- 웹 루트 폴더
+		- 브라우저로 접근 가능한 최상위 폴더
+	- 7.2 webapp > resources
+		- CSS, JavaScript, 이미지 들 정적 자원을 관리하는 폴더
+		- 이전 수업 > asset 폴더 역할
+		- 강제력(X) > 권장(O)
+	- 7.3 webapp > WEB-INF
+		7.3.1 classes
+			- 컴파일된 클래스 파일 저장 폴더(이전 bin 폴더 역할)
+			- 개발자 관여(X)
+		7.3.2 spring(*******************)
+			- 스프링 관련 대부분의 설정
+			7.3.2.1 appServlet > servlet-context.xml
+				- 스프링 설정 파일
+			7.3.2.2 root-context.xml
+				- 스프링 설정 파일
+		7.3.3 views
+			- 뷰 페이지 저장 폴더(*.jsp)
+		7.3.4 web.xml
+			- 톰캣 설정 파일
+			
+8. pom.xml
+	- Project Object Model
+	- 메이븐 설정 파일
+	- Lombok 설정 > lombok.jar 참조
+
+
+
+
+
+
+
+
+
+
