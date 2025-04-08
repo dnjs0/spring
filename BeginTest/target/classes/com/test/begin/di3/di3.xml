@@ -7,6 +7,7 @@
 	<!-- Hong 객체 -->
 	<bean id="hong" class="com.test.begin.di3.Hong"></bean>
 	
-	
+	<!-- Lee 객체 -->
+	<bean  id="lee" class="com.test.begin.di3.Lee"></bean>
 
 </beans>
