@@ -1,0 +1,9 @@
+## 프로젝트 생성
+- "hello" + Spring MVC Project > "com.test.hello" > Finish
+
+## 현재 프로젝트 > 버전 ? > 수정해야 함
+- 자바 버전 > 11로 바꿔야함
+	- pom.xml(메이븐 설정 파일)
+	- Project facets
+- 스프링 버전
+	- pom.xml
