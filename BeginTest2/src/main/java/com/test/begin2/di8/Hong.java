@@ -1,4 +1,4 @@
-package com.test.begin2.di6;
+package com.test.begin2.di8;
 
 public class Hong {
 	public void work() {
