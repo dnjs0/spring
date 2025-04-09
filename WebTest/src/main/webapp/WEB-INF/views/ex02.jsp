@@ -11,10 +11,7 @@
 	</style>
 </head>
 <body>
-	<!-- ex01.jsp -->
-	<h1>결과</h1>
-	
-	<div>name : ${name}</div>
+	<!--  -->
 	
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>

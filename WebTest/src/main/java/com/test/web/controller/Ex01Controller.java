@@ -22,9 +22,13 @@ public class Ex01Controller implements Controller {
 		//1. Model > 데이터 전송
 		//2. View > JSP
 		
+		String name = "홍길동";
+		//request.setAttribute("name", name); > 옛날 방식
+		
 		ModelAndView mv = new ModelAndView();
 		//mv.setViewName("/WEB-INF/views/ex01.jsp");
 		mv.setViewName("ex01");
+		mv.addObject("name", name); //> 권장 방식
 		
 		return mv; //ViewResolver 실행 = "/WEB-INF/views/"+ "ex01"+".jsp"
 	}
