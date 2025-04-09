@@ -14,10 +14,11 @@
 - ModelAndView 사용
 
 
-- com.test.web.controller > Ex01Controller.java
+- webtest > "script.sql"
+- com.test.web.controller > Ex02Controller.java
 - "com.test.web.model" > "SpringDAO.java"
 					   >
-- views > ex01.jsp
+- views > ex02.jsp
 
 
 

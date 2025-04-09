@@ -11,8 +11,9 @@
 	</style>
 </head>
 <body>
-	<!--  -->
-	
+	<!-- ex02.jsp -->
+	<h1>인원수</h1>
+	<div>${count}명</div>
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>
