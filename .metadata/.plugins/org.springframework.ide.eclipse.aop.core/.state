@@ -2,4 +2,5 @@
 <aop-reference-model>
 <aop-project name="hello"/>
 <aop-project name="BeginTest"/>
+<aop-project name="BeginTest2"/>
 </aop-reference-model>
