@@ -12,6 +12,9 @@
 - log4j 버전 > 1.2.17 
 - jUnit버전 > 4.12
 
+
+
+
 ## 파일
 - di6 : 일반적인 의존 관계 구현 > 필요한 사람이 직접 객체를 만들어서 사용
 - di7 : 의존 주입(DI) 패턴을 적용 > 생성자 or Setter 사용
@@ -19,6 +22,79 @@
 - di9 : 
 
 - 단위 테스트
-	- src/test/java > 
+	- src/test/java 
+	
+	
+
+
+## Spring AOP, Aspect Oriented Programming
+- 관점 지향 프로그래밍
+- 코드 작성 > 주업무 코드 + 보조 업무 코드
+
+- 의존성 추가 > pom.xml
+
+
+
+### AOP 용어
+- Core Concern
+- Cross-cutting concern
+- Target
+- Proxy
+- JoinPoint
+- Pointcut
+- Aspect
+- Advice
+
+
+
+## 파일
+- 
+- com.test.begin2.aop
+	- Main.java			//메인
+	- Memo.java(I)		//메인 업무 객체(인터페이스)
+	- MemoImpl.java(C)	//메인 업무 객체(구현체)
+
+	- Logger.java(C)	//보조 업무 객체(로그)
+	
+	- memo.xml			//스프링 설정
+
+
+## 명명법
+- 클래스 + 인터페이스
+- IUser.java(I) + User.java(C) + Administrator.java(C)
+- User.java(I) + UserImpl.java(C) > 상속된 클래스가 딱 1개일때 사용
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
