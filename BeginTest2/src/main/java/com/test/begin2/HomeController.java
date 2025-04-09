@@ -1,4 +1,4 @@
-package com.test.begin;
+package com.test.begin2;
 
 import java.text.DateFormat;
 import java.util.Date;
