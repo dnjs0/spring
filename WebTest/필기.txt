@@ -1,0 +1,22 @@
+
+
+
+## 파일
+- "com.test.web.controller"
+
+- "com.test.web.controller" > "Ex01Controller.java"
+- views > ex01.jsp
+- XML을 사용환 환경 설정
+	- WEB-INF > spring > root-context.xml(스프링 전반적인 설정)
+	- WEB-INF > spring > appServlet > servlet-context.xml(클라이언트 요청/응답 관련 설정)
+
+
+
+
+
+
+
+
+
+
+
