@@ -26,6 +26,8 @@
 		</div>
 	</form>
 	
+	<hr>
+	
 	<form method="post" action="/web/ex07ok.do">
 		<table class="vertical">
 			<tr>
@@ -39,6 +41,25 @@
 			<tr>
 				<th>주소</th>
 				<td><input type="text" name="address"></td>
+			</tr>
+		</table>
+		<div>
+			<button>보내기</button>
+		</div>
+		<input type="hidden" name="seq" value="100">
+	</form>
+	
+	<hr>
+	
+	<form method="post" action="/web/ex07ok.do">
+		<table class="vertical">
+			<tr>
+				<th>취미</th>
+				<td>
+					<input type="checkbox" name="cb" value="독서"> 독서
+					<input type="checkbox" name="cb" value="운동"> 운동
+					<input type="checkbox" name="cb" value="여행"> 여행
+				</td>
 			</tr>
 		</table>
 		<div>

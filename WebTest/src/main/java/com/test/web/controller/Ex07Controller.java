@@ -3,8 +3,8 @@ package com.test.web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.test.web.model.AddressDTO;
 import com.test.web.model.SpringDAO;
@@ -192,6 +192,7 @@ public class Ex07Controller {
 	*/
 	
 	
+	/*
 	//여러개 받기(코드 줄이기)
 	@PostMapping("/ex07ok.do") //addok.do 역할
 	public String ex07ok(Model model, AddressDTO dto) {
@@ -205,7 +206,56 @@ public class Ex07Controller {
 		
 		return "ex07ok";
 	}
+	*/
 	
+	/*
+	//여러개 받기(코드 줄이기)
+	@PostMapping("/ex07ok.do") //addok.do 역할
+	public String ex07ok( Model model, List<String> cb) {
+		//@RequestParam("cb") String[] cb -> String[] cb 생략가능
+		//@RequestParam("cb") List<String> cb  리스트로도 쓸 수있음(@RequestParam 생략 불가능)
+		//req.getParameterValues("cb")
+		
+		
+		
+		
+		//model.addAttribute("cb", Arrays.toString(cb));
+		model.addAttribute("cb", cb);
+		
+		return "ex07ok";
+	}
+	*/
+	
+	
+	/*
+	//hidden 태그 name=seq인 상황
+	@PostMapping("/ex07ok.do") //addok.do 역할
+	public String ex07ok(Model model, AddressDTO dto, String seq) {
+		
+		//AddresssDTO dto 제공받기 위한 조건
+		//- 태그의 name과 DTO의 setter명이 동일
+		
+		//DB insert
+		SpringDAO dao = new SpringDAO();
+		dao.add(dto);
+		System.out.println(seq);
+		
+		return "ex07ok";
+	}
+	*/
+	
+	
+	@PostMapping("/ex07ok.do") //addok.do 역할
+	public String ex07ok(Model model, @ModelAttribute("data") String data) {
+		
+		//@ModelAttribute = getParameter + addAttribute
+		
+		//model.addAttribute("data",data);
+		
+		return "ex07ok";
+	}
+	
+		
 }
 
 

@@ -11,13 +11,9 @@
 	</style>
 </head>
 <body>
-	<!-- ex07ok.jsp -->
-	<h1>결과</h1>
+	<!-- ex08.jsp -->
+	<h1>Ex08</h1>
 	
-	<div>
-		<div>data : ${data}</div>
-		<div>cb : ${cb}</div>
-	</div>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>

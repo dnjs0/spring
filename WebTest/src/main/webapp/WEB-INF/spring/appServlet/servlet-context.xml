@@ -25,12 +25,12 @@
 	<context:component-scan base-package="com.test.web" />
 	
 	<!-- 컨트롤러를 스프링 빈으로 등록하기 -->
-	<beans:bean class="com.test.web.controller.Ex01Controller" name="/ex01.do"></beans:bean>
+	<!-- <beans:bean class="com.test.web.controller.Ex01Controller" name="/ex01.do"></beans:bean> -->
 	
 	<!-- 의존주입 -->
-	<beans:bean class="com.test.web.model.SpringDAO" id="dao"></beans:bean>
+	<!-- <beans:bean class="com.test.web.model.SpringDAO" id="dao"></beans:bean>
 	<beans:bean class="com.test.web.controller.Ex02Controller" name="/ex02.do">
 		<beans:constructor-arg ref="dao"></beans:constructor-arg>
-	</beans:bean>
+	</beans:bean>  -->
 	
 </beans:beans>

@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class SpringDAO {
 	private Connection conn;
 	private Statement stat;

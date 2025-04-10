@@ -11,14 +11,9 @@
 	</style>
 </head>
 <body>
-	<!-- ex07ok.jsp -->
-	<h1>결과</h1>
-	
-	<div>
-		<div>data : ${data}</div>
-		<div>cb : ${cb}</div>
-	</div>
-	
+	<!-- ex09.jsp -->
+	<h1>ex09</h1>
+	<div>직원수 : ${count}명</div>
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>

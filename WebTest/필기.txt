@@ -57,4 +57,25 @@
 - views > ex07.jsp
 		> ex07ok.jsp
 - web.xml > 인코딩 필터 추가
+- 서버 측에서 데이터 수신하기(***)
+
+
+
+
+
+- com.test.web.controller > Ex08Controller.java
+- views > ex08.jsp
+- 컨트롤러의 반환값 종류
+- 의존성 추가 > pom.xml
+
+
+- com.test.web.controller > Ex09Controller.java
+- views > ex09.jsp
+- 의존 주입
+
+
+
+
+
+
 
