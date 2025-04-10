@@ -2,6 +2,8 @@
 <aop-reference-model>
 <aop-project name="hello"/>
 <aop-project name="WebTest"/>
+<aop-project name="JunitTest"/>
 <aop-project name="BeginTest"/>
+<aop-project name="MyBatisTest"/>
 <aop-project name="BeginTest2"/>
 </aop-reference-model>
