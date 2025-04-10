@@ -1,0 +1,14 @@
+#MyBatisTest
+- DB연동
+- JDBC(코드 반복, SQL 작성 불편)
+	- Spring JDBC
+	- MyBatis + Spring
+	- JPA + Spring  Boot
+	
+	
+## MyBatis 설정
+- MyBatis 의존성 추가 > 4개
+- DBCP 의존성 추가 > 2개
+- 설정
+	- root-context.xml
+

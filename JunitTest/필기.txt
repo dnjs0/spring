@@ -1,0 +1,8 @@
+#JUnitTest
+- 자바 애플리케이션에서 테스트 작성과 실행을 하기 위한 프레임워크이다.
+- JUnit4(Spring), JUnit5(Spring Boot)
+
+## 단위 테스트
+- src/test/java
+	- "com.test.java.model"
+	- TestDAOTests.java
