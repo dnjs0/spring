@@ -56,4 +56,5 @@
 - com.test.web.controller > Ex07Controller.java
 - views > ex07.jsp
 		> ex07ok.jsp
+- web.xml > 인코딩 필터 추가
 

@@ -48,6 +48,11 @@ public class SpringDAO {
 		}
 		return 0;
 	}
+
+	public void add(AddressDTO dto) {
+		System.out.println("결과 : " + dto);
+		
+	}
 	
 }
 

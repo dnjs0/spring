@@ -12,6 +12,11 @@
 </head>
 <body>
 	<!-- ex07ok.jsp -->
+	<h1>결과</h1>
+	
+	<div>
+		<div>data : ${data}</div>
+	</div>
 	
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
