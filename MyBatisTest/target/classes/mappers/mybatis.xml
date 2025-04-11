@@ -45,4 +45,55 @@
 	</select>
 	
 	
+	<!-- m6 -->
+	<select id="m6" parameterType="String" resultType="adto">
+		select * from tblAddress where seq = #{seq} 
+	</select>
+	
+	
+	<!-- m7 -->
+	<!--  resultType="String" (list아님) 레코드 한줄에 대한 타입 적기 -->
+	<select id="m7" resultType="String">
+		select name from tblAddress order by name asc
+	</select>
+	
+	
+	
+	<!-- m8 -->
+	<!--  resultType="adtos" 레코드 한줄에 대한 타입 적기 -->
+	<select id="m8" resultType="adto">
+		select * from tblAddress order by name asc
+	</select>
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- m9 -->
+	<!-- <select id="m9" parameterType="String">
+		select count(*) from #{tableName}
+	</select> -->
+	<!-- 
+		MyBatis : 바인딩 표현시
+		1. #{} : 데잍텉 바인딩 -> ''를 붙임
+		2. ${} : 식별자 바인딩
+	 -->
+	
+	
+	<select id="m9" parameterType="String" resultType="Integer">
+		select count(*) from ${tableName}
+	</select>
+	
+	
+	
+	
 </mapper>

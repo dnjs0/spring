@@ -61,4 +61,32 @@
 		> add.jsp
 
 
+## log4j(for java) 
+- 의존성 추가 > pom.xml (기본적으로 있음, 우리는 버전을 바꿈)
+- DB 관련 로그 없음 > 추가해야함
+	- root-context.xml > DataSource(DBCP) 수정
+	- src/main/resources > log4j.xml > 수정
+						 > log4jdbc.log4j2.properties 
+						 > 의존성 추가
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

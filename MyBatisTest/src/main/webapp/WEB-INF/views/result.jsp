@@ -10,6 +10,9 @@
 	<!-- result.jsp -->
 	<h1>결과</h1>
 	<div>result : ${result}</div>
+	<div>dto : ${dto }</div>
+	<div>names: ${names}</div>
+	<div>list : ${list }</div>
 
 </body>
 </html>

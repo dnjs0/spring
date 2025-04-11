@@ -1,6 +1,7 @@
 package com.test.mybatis.model;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -83,7 +84,58 @@ public class MyBatisDAOImpl implements MyBatisDAO {
 		return template.selectOne("mybatis.m5");
 	}
 	
+	@Override
+	public AddressDTO m6(String seq) {
+		/*
+		 
+		 	try{
+		 		String sql = "select .."
+		 		pstat = conn.prepareSt..(sql)
+		 		pstat.setString(1,seq);
+		 		rs= pstat.executeQuery();
+		 		if(rs.next(){
+		 			AdddressDTO dto = ...
+		 	}
+		 
+		 */
+		
+		//select > 레코드(오라클데이터) > 매핑 > AddressDTO(자바 데이터)
+		return template.selectOne("mybatis.m6", seq);
+	}
 	
+	
+	@Override
+	public List<String> m7() {
+		/*
+		
+			try{
+				String sql="select .."
+				stat = conn.cre..
+				rs = stat.executeQuery()
+				List<String> list = /..
+				while (rs.next()){
+					//레코드 1줄 > DTO1개
+					 list.add(rs.getString("name"));
+				}
+				return list;
+			}
+		
+		*/
+		
+		return template.selectList("mybatis.m7");
+	}
+	
+	@Override
+	public List<AddressDTO> m8() {
+		return template.selectList("mybatis.m8");
+	}
+	
+	
+	@Override
+	public int m9(String tableName) {
+		
+		return template.selectOne("mybatis.m9",tableName);
+	}
 	
 }
 

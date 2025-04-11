@@ -1,6 +1,7 @@
 package com.test.mybatis.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,10 +85,44 @@ public class MyBatisController {
 	
 	
 	
-	// 순서 : dao(interface) > daoImpl > xml(쿼리적기) > 단위테스트
+	// 순서 : dao(interface) > daoImpl > xml(쿼리적기) > 단위테스트 > controller 
+	@GetMapping(value="/m5.do")
+	public String m5(Model model) {
+		
+		int result = dao.m5();
+		model.addAttribute("result",result);
+		
+		return "result";
+	}
 	
 	
+	@GetMapping(value="/m6.do")
+	public String m6(Model model) {
+		
+		AddressDTO dto = dao.m6("10");
+		model.addAttribute("dto",dto);
+		
+		return "result";
+	}
 	
+	
+	@GetMapping(value="/m7.do")
+	public String m7(Model model) {
+		
+		List<String> names = dao.m7();
+		model.addAttribute("names",names);
+		
+		return "result";
+	}
+	
+	@GetMapping(value="/m8.do")
+	public String m8(Model model) {
+		
+		List<AddressDTO> list = dao.m8();
+		model.addAttribute("list",list);
+		
+		return "result";
+	}
 	
 	/*
 	@GetMapping(value="/m1.do")
