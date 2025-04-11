@@ -10,4 +10,9 @@ public interface MyBatisDAO {
 
 	int m3(HashMap<String, String> map);
 
+	int m4(AddressDTO dto);
+	
+	//select count(*) from tblAddress
+	int m5();
+
 }

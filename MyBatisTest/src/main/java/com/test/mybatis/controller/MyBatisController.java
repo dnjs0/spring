@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.test.mybatis.model.AddressDTO;
 import com.test.mybatis.model.MyBatisDAO;
 
 import lombok.RequiredArgsConstructor;
@@ -61,6 +62,30 @@ public class MyBatisController {
 		
 		return "result";
 	}
+	
+	
+	
+	//반환값(X), 인자값(O) (insert)
+	@GetMapping(value="/m4.do")
+	public String m4(Model model) {
+		
+		//사용자가 입력했다고 가정
+		AddressDTO dto = new AddressDTO();
+		dto.setName("아무개");
+		dto.setAge("20");
+		dto.setAddress("서울시 강남구 역삼동");
+		dto.setGender("m");
+		
+		int result = dao.m4(dto);
+		model.addAttribute("result",result);
+		
+		return "result";
+	}
+	
+	
+	
+	// 순서 : dao(interface) > daoImpl > xml(쿼리적기) > 단위테스트
+	
 	
 	
 	

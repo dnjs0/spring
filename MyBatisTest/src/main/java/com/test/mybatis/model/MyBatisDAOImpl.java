@@ -64,6 +64,24 @@ public class MyBatisDAOImpl implements MyBatisDAO {
 		return template.update("mybatis.m3", map);
 		
 	}
+
+
+	@Override
+	public int m4(AddressDTO dto) {
+		//반환값(X), 인자값(O)
+		
+		return template.insert("mybatis.m4",dto);
+	}
+
+
+	@Override
+	public int m5() {
+		//반환값(O), 인자값(X)
+		// - 단일값 반환(1행 1열)
+		
+		//selectOne : 자동으로 ResultSet 만들어서 mapping해줌
+		return template.selectOne("mybatis.m5");
+	}
 	
 	
 	
