@@ -6,6 +6,21 @@
 	- JPA + Spring Boot
 
 
+##MyBatis
+- 영속성계층(데이터베이스 조작)
+- JDBC 역할
+- SQL Mapper Framework > SQL의 실행 결과를 객체로 '매핑'해준다(***)
+- 생산성, 유지보수 > 장점
+- SQL 코드와 자바 코드를 분리 > XML
+
+
+## JPA
+- 영속성 계층(데이터베이스 조작)
+- JDBC 역할
+- ORM
+
+
+
 
 ## 프로젝트 생성
 - "MyBatisTest" + Spring MVC Project > "com.test.mybatis" > Finish
@@ -29,11 +44,21 @@
 	- root-context.xml
 
 ##단위테스트
-- 
+- Commons DBCP
+- HikariCP
+- MyBatis
 
 
-
-
+## 파일
+- script.sql
+- com.test.mybatis.controller > MyBatisController.java
+- com.test.mybatis.model > MyBatisDAO.java (I)
+						 > MyBatisDAOImpl.java (C)
+						 > AddressDTO.java
+						 > InsaDTO.java
+- views > result.jsp
+		> list.jsp
+		> add.jsp
 
 
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 보통 파일 이름을 적음 -->
+<!-- Mapper XML : SQL을 작성 -->
+<mapper namespace = "mybatis">
+
+	<!-- m1 -->
+	<insert id="m1">
+		insert into tblAddress
+			values(seqAddress.nextVal,'홍길동',20,'서울시 강남구 역삼동','m')
+	</insert>
+
+
+	<!-- m2 -->
+	<delete id="m2" parameterType="String">
+		delete from tblAddress where seq = #{seq}
+	</delete>
+	
+	
+	<!-- m3 -->
+	<update id="m3" parameterType = "java.util.HashMap">
+		update tblAddress set
+			age = #{age}, 
+			address = #{address}
+				where seq = #{seq}
+	</update>
+	
+</mapper>
