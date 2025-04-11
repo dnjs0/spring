@@ -137,6 +137,37 @@ public class MyBatisDAOImpl implements MyBatisDAO {
 		return template.selectOne("mybatis.m9",tableName);
 	}
 	
+	
+	@Override
+	public List<AddressDTO> m10(int age) {
+
+		return template.selectList("mybatis.m10", age);
+	}
+	
+	
+	@Override
+	public List<AddressDTO> m11(String word) {
+		return template.selectList("mybatis.m11", word);
+	}
+	
+	@Override
+	public List<AddressDTO> m12(String gender) {
+		
+		//1. gender = "m"
+		//2. gender = "f"
+		//3. gender = "all"
+		
+		return template.selectList("mybatis.m12", gender);
+	}
+	
+	
+	@Override
+	public List<AddressDTO> m13(AddressDTO dto) {
+		
+		return template.selectList("mybatis.m13", dto);
+	}
+	
+	
 }
 
 

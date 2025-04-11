@@ -78,5 +78,52 @@ public class MyBatisDAOImplTests {
 		
 		assertEquals(60,count);
 	}
+		
+	@Test
+	public void m10() {
+		
+		List<AddressDTO> list = dao.m10(15);
+		System.out.println(list);
+		assertEquals(9, list.size());
+		
+	}
+	
+	@Test
+	public void m11() {
+		String word="강남";
+		List<AddressDTO> list = dao.m11(word);
+		System.out.println(list);
+		
+	}
+	
+	
+	@Test
+	public void m12() {
+		String gender="f";
+		List<AddressDTO> list = dao.m12(gender);
+		System.out.println(list);
+		
+	}
+	
+	
+	@Test
+	public void m13() {
+		
+		// 검색
+		//1. 나이로 검색
+		//2. 주소로 검색
+		//3. 성별로 검색
+		
+		AddressDTO dto = new AddressDTO();
+		dto.setAge("18");
+		dto.setAddress("강남");
+		dto.setGender("m");
+		
+		List<AddressDTO> list = dao.m13(dto);
+		System.out.println(list);
+		System.out.println(list.size());
+	}
+	
+
 
 }

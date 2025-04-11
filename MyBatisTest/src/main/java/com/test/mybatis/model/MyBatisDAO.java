@@ -46,6 +46,28 @@ public interface MyBatisDAO {
 	int m9(String tableName);
 	
 	
+	//select * from tblAddress where age > 25
+	List<AddressDTO>  m10(int age);
+	
+	
+	//select * from tblAddress where address like '%강남%'
+	List<AddressDTO> m11(String word);
+	
+	
+	
+	
+	
+	//정적 쿼리
+	//매개변수 + 쿼리 > #{}
+	//-------------------------------------------------------------
+	//동적 쿼리 > 상황에 따른 SQL 구문이 변환됨
+	List<AddressDTO> m12(String gender);
+	
+	
+	
+	List<AddressDTO> m13(AddressDTO dto);
+	
+	
 }
 
 

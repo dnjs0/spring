@@ -85,7 +85,7 @@
 	<!-- 
 		MyBatis : 바인딩 표현시
 		1. #{} : 데잍텉 바인딩 -> ''를 붙임
-		2. ${} : 식별자 바인딩
+		2. ${} : 식별자 바인딩 -> 그대로 넘어옴
 	 -->
 	
 	
@@ -95,5 +95,123 @@
 	
 	
 	
+	<!-- m10 -->
+	<select id="m10" parameterType="Integer" resultType="adto">
+		<!-- 
+		select * from tblAddress
+			where age &lt; #{age} 
+		-->
+		
+		select * from tblAddress
+			<![CDATA[
+			where age > #{age}
+			]]> 
+			
+	</select>
+	
+	
+	
+	<!-- m11 -->
+	<select id="m11" parameterType="String" resultType="adto">
+		<!-- select * from tblAddress
+			where address like '%' || #{word} || '%' -->
+		
+		
+		select * from tblAddress
+			where address like '%${word}%'
+		
+	</select>
+	
+	
+	
+	
+	<!-- m12 -->
+	<!--
+		동적 쿼리
+		- 상황에 따라 쿼리를 조작
+		- <if>, <choose>, <foreach> .. > JSTL 역할  
+	-->
+	<select id="m12" parameterType="String" resultType="adto">
+		<!-- 
+			세가지 경우 받고싶음..
+			select * from tblAddress where gender = 'm'
+			select * from tblAddress where gender = 'f'
+			select * from tblAddress where gender = 'all'
+		 -->
+		 
+		 
+		 
+		 <!-- 넘어온 문자열이 한 글자인 경우 toString()붙여야함 -->
+		 <!-- <if test="gender == 'm'.toString()">
+		 select * from tblAddress where gender = 'm'
+		 </if>
+		 <if test="gender == 'f'.toString()">
+		select * from tblAddress where gender = 'f'
+		</if>
+		<if test="gender == 'all'">
+		select * from tblAddress
+		</if> -->
+		
+		
+		
+		
+		<!-- 위의 코드는 반복되는 부분이 넘 많음 -->
+		<!-- select * from tblAddress
+			<if test="gender == 'm'.toString()">
+		 	where gender='m'
+		 	</if>
+		 	<if test="gender == 'f'.toString()">
+			where gender = 'f'
+			</if> -->
+			
+			
+			
+		
+		
+		<!-- 받는 값 바인딩 하기 -->
+		select * from tblAddress
+			<if test="gender != 'all'">
+		 	where gender= #{gender}
+		 	</if>
+
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	<!-- m13 -->
+	<!-- where 1=1 : 무조건 true인 조건을 닮 -->
+	<select id="m13" parameterType="adto" resultType="adto">
+		select * from tblAddress where 1=1
+		
+			<if test="age != null">
+				and age > #{age}
+			</if>
+			<if test="gender != null">
+				and gender = #{gender}
+			</if>
+			<if test="address != null">
+				and address like '%' || #{address} || '%'
+			</if>
+			
+			
+			
+					
+	</select>
+	
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
