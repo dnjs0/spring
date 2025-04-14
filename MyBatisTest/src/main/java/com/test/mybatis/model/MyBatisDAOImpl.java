@@ -166,6 +166,16 @@ public class MyBatisDAOImpl implements MyBatisDAO {
 		
 		return template.selectList("mybatis.m13", dto);
 	}
+
+
+	@Override
+	public List<AddressDTO> m14(String type) {
+
+		return template.selectList("mybatis.m14",type);
+	}
+	
+	
+	
 	
 	
 }

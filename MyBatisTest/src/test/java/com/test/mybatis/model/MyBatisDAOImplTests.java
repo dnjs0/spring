@@ -124,6 +124,14 @@ public class MyBatisDAOImplTests {
 		System.out.println(list.size());
 	}
 	
+	
+	@Test
+	public void m14() {
+		List<AddressDTO> list = dao.m14("m");
+		System.out.println(list);
+		System.out.println(list.size());
+	}
+	
 
 
 }

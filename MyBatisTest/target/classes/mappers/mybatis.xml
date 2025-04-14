@@ -185,7 +185,7 @@
 	<!-- m13 -->
 	<!-- where 1=1 : 무조건 true인 조건을 닮 -->
 	<select id="m13" parameterType="adto" resultType="adto">
-		select * from tblAddress where 1=1
+		<!-- select * from tblAddress where 1=1
 		
 			<if test="age != null">
 				and age > #{age}
@@ -195,12 +195,83 @@
 			</if>
 			<if test="address != null">
 				and address like '%' || #{address} || '%'
-			</if>
+			</if> -->
 			
 			
+			
+			
+			select * from tblAddress
+			<where>
+				<if test="age != null">
+					and age > #{age}
+				</if>
+				<if test="gender != null">
+					and gender = #{gender}
+				</if>
+				<if test="address != null">
+					and address like '%' || #{address} || '%'
+				</if>
+			</where>
 			
 					
 	</select>
+	
+	
+	
+	
+	
+	<!-- m14 -->
+	<!-- choose(다중 if문과 가까움) -->
+	<select id="m14" parameterType="String" resultType="adto">
+		
+		<!-- 
+			아래의 경우에만 발생하는 상황(오류)
+			1. parameterType = "String"
+			2. 비교조선 검사(if, when)
+			
+			<if test="type == 'm'">
+			<when test="type == 'm'">
+			- 'm' > char로 인식 > 숫자형
+			
+			해결책
+			- 우측의 'm'을 문자열로 인식하게 변경
+			1.toString()
+			2. ""
+			
+		 -->
+
+
+
+
+		<!--
+		select * from tblAddress
+			<choose>
+				<when test="type == 'm'.toString()">
+					where gender = 'm'
+				</when>
+				<when test="type == 'f'.toString()">
+					where gender = 'f'
+				</when>
+				<otherwise>
+				
+				</otherwise>
+			</choose>
+		  -->
+		  
+		  
+		  
+		  
+		  select * from tblAddress
+			<where>
+			  	<if test="gender !=null">
+			  	gender = #{type}
+			  	</if>
+			</where>
+		  	
+		  	
+	</select>
+	
+	
 	
 	
 </mapper>
