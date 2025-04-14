@@ -1,7 +1,5 @@
 package com.test.mybatis.model;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,17 +7,19 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class AddressDTO {
-	private String seq;
+
+public class AddressMemoDTO {
+	//addressDTO
+	private String addrseq;
 	private String name;
 	private String age;
 	private String address;
 	private String gender;
 	
-	// 1(tblAddress) : 1(tblInfo)  > 1대1임
-	private InfoDTO info;
+	//memoDTO
+	private String mseq;
+	private String memo;
+	private String regdate;
+	private String aseq;
 	
-	// 1(tblAddress) : N(tblMemo)  > 1대N임
-	private List<MemoDTO> memo;
-
 }

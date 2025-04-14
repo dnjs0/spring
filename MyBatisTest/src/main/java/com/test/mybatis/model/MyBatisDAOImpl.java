@@ -175,9 +175,80 @@ public class MyBatisDAOImpl implements MyBatisDAO {
 	}
 	
 	
+	@Override
+	public List<InsaDTO> m15(List<String> search) {
+		
+		//search = { "영업부", "총무부", "개발부" }
+		//where buseo in ('영업부', '총무부', '개발부')
+		System.out.println("search: " + search);
+				
+		return template.selectList("mybatis.m15", search);
+	}
+	
+	
+	@Override
+	public void m16(List<AddressDTO> data) {
+		System.out.println("data: " + data);
+		template.insert("mybatis.m16", data);
+	}
 	
 	
 	
+	@Override
+	public void m17add(AddressDTO dto) {
+
+		template.insert("mybatis.m17add",dto);
+	}
+	
+	
+	
+	@Override
+	public int m17get() {
+
+		return template.selectOne("mybatis.m17get");
+	}
+	
+	@Override
+	public void m17add2(AddressDTO dto) {
+		template.insert("mybatis.m17add2",dto);
+		
+	}
+	
+	
+	@Override
+	public List<AddressInfoDTO> m18a() {
+		return template.selectList("mybatis.m18a");
+	}
+	
+	
+	@Override
+	public List<AddressDTO> m18b() {
+
+		return template.selectList("mybatis.m18b");
+	}
+	
+	@Override
+	public List<AddressMemoDTO> m19a() {
+		return template.selectList("mybatis.m19a");
+	}
+	
+	@Override
+	public List<AddressDTO> m19b() {
+		List<AddressDTO> list =  template.selectList("mybatis.m19b");
+		for(AddressDTO dto : list) {
+			List<MemoDTO> mlist = template.selectList("mybatis.m19bs", dto.getSeq());
+			dto.setMemo(mlist); //해당 유저가 작성한 메모 목록
+		}
+		return list;
+	}
+	
+	@Override
+	public List<AddressDTO> m19c() {
+		//m19b와 동일한 업무 > mybatis에게 대무문 위임
+		
+		return template.selectList("mybatis.m19c");
+	}
+
 }
 
 

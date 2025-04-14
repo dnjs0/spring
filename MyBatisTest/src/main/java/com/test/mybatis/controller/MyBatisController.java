@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.test.mybatis.model.AddressDTO;
+import com.test.mybatis.model.AddressMemoDTO;
 import com.test.mybatis.model.MyBatisDAO;
 
 import lombok.RequiredArgsConstructor;
@@ -121,6 +122,39 @@ public class MyBatisController {
 		List<AddressDTO> list = dao.m8();
 		model.addAttribute("list",list);
 		
+		return "result";
+	}
+	
+	@GetMapping(value="/m18.do")
+	public String m18(Model model) {
+		
+		List<AddressDTO> list = dao.m18b();
+		model.addAttribute("list",list);
+		
+		return "result";
+	}
+	
+	
+	@GetMapping(value="/m19a.do")
+	public String m19a(Model model) {
+		List<AddressMemoDTO> alist = dao.m19a();
+		model.addAttribute("alist",alist);
+		return "result";
+	}
+	
+	
+	@GetMapping(value="/m19b.do")
+	public String m19b(Model model) {
+		List<AddressDTO> blist = dao.m19b();
+		model.addAttribute("blist",blist);
+		return "result";
+	}
+	
+	
+	@GetMapping(value="/m19c.do")
+	public String m19c(Model model) {
+		List<AddressDTO> clist = dao.m19c();
+		model.addAttribute("clist",clist);
 		return "result";
 	}
 	

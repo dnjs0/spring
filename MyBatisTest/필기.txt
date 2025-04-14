@@ -70,7 +70,13 @@
 						 > 의존성 추가
 	
 
-
+- com.test.mybatis.controller > BoardController.java
+- com.test.mybatis.model > BoardDAO.java
+						 > BoardDTO.java 	//게시물
+						 > CommentDTO.java	//댓글
+- views > list1.jsp 	//첫번째 스타일
+		> list2.jsp		//두번째 스타일(익숙한)
+		> view.jsp		
 
 
 

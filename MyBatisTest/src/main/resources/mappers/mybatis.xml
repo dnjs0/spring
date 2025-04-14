@@ -274,6 +274,204 @@
 	
 	
 	
+	<!-- m15 -->
+	<select id="m15" parameterType="java.util.ArrayList" resultType="idto">
+	
+		<!--  
+			map.put("buseo1", "영업부");
+			map.put("buseo2", "총무부");
+			map.put("buseo3", "개발부");
+			
+			where buseo in (#{buseo1}, #{buseo2}, #{buseo3});
+		-->
+	
+		<!--  
+			select * from tblInsa
+				where
+					'영업부'
+					'총무부'
+					'개발부'
+		-->
+	
+		
+		<!-- 
+		select * from tblInsa
+			<where>
+				<foreach collection="list" item="item" index="index">
+					#{item}
+				</foreach>
+			</where>  
+		-->
+		
+			
+			
+		<!--  
+			select * from tblInsa
+				where
+					buseo in (
+					'영업부'
+					,
+					'총무부'
+					,
+					'개발부'
+					,
+					)
+		-->
+		select * from tblInsa
+			<where>
+				<foreach collection="list" item="item" index="index" open="buseo in (" close=")" separator=","> 
+					#{item}
+				</foreach>
+			</where>
+			
+	</select>
+
+
+
+
+	<!-- m16 -->
+	<insert id="m16" parameterType="java.util.ArrayList">
+		<foreach collection  = "list" item = "item" open="insert all" close="select * from dual" separator=" " index="index">
+			into tblAddress (seq, name, age, address, gender)
+			values ((select max(seq) +1+ #{index} from tblAddress), #{item.name}, #{item.age}, #{item.address}, #{item.gender})
+		</foreach>
+	
+	</insert> 
+	
+	
+	<!-- <insert id="m16" parameterType="java.util.List">
+    	insert into tblAddress (seq, name, age, address, gender)
+    		<foreach collection="list" item="item" separator=" union all " open="select seqAddress.nextval, a.* from (">
+        		select #{item.name}, #{item.age}, #{item.address}, #{item.gender} from dual
+    		</foreach>
+ 		)
+	</insert> -->
+	
+	
+	<!-- m17 -->
+	<insert id="m17add" parameterType="adto">
+		insert into tblAddress
+			values(seqAddress.nextVal,#{name},#{age},#{address},#{gender})
+	</insert>
+	
+	<select id="m17get" resultType="Integer">
+		select max(seq) from tblAddress
+	</select>
+	
+	
+	
+	<!-- m17 -->
+	<insert id="m17add2" parameterType="adto">
+		<selectKey keyProperty="seq" order="BEFORE" resultType="String">
+			select seqAddress.nextVal from dual
+		</selectKey>
+	
+		insert into tblAddress
+			values(#{seq} ,#{name},#{age},#{address},#{gender})
+	</insert>
+	
+	
+	<!-- m18a -->
+	<select id="m18a" resultType="com.test.mybatis.model.AddressInfoDTO">
+		select 
+			a.seq as aseq, name, age, gender, address,
+			i.seq as iseq, school, country
+		 from tblAddress a
+			left outer join tblInfo i
+				on a.seq = i.seq
+				
+	</select>
+	
+	
+	
+	<!-- m18b -->
+	<resultMap type="com.test.mybatis.model.InfoDTO" id="infoMap">
+		<id column="seq" property="seq"></id>
+		<result column="school" property="school"></result>
+		<result column="country" property="country"></result>
+	</resultMap>
+	
+	<resultMap type="adto" id="addressMap">
+		<!-- 
+			컬럼 맵핑 
+			- select의 컬럼 > (연결) > adto의 Setter
+			- id : PK매핑 용도
+			- result : 일반 컬럼 용도
+		-->
+		<id column="seq" property="seq" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
+		<result column="address" property="address" />
+		<result column="gender" property="gender" />
+		<association property="info" resultMap="infoMap"></association>
+	</resultMap>
+	
+	<select id="m18b" resultMap="addressMap">
+		select * from tblAddress a
+			left outer join tblInfo i
+				on a.seq = i.seq
+		
+	</select>
+	
+	
+	
+	
+	<!-- m19a -->
+	<select id="m19a" resultType="com.test.mybatis.model.AddressMemoDTO">
+	 	select 
+	 		a.seq as addrseq, name, age, address, gender,
+	 		m.seq as mseq, memo, regdate, aseq
+	 	from tblAddress a
+    		left outer join tblMemo m
+        		on a.seq=m.aseq
+	</select>
+	
+	
+	
+	<!-- m19b -->
+	<select id="m19b" resultType="adto">
+		select * from tblAddress
+	
+	</select>
+	
+	<select id="m19bs" parameterType="String" resultType="com.test.mybatis.model.MemoDTO">
+		select * from tblMemo
+			where aseq = #{seq}
+	</select>
+	
+	
+	
+	<!-- m19c -->
+	<resultMap type="adto" id="addressMap2">
+		<id column="addrseq" property="seq"></id>
+		<result column="name" property="name"/>
+		<result column="age" property="age"/>
+		<result column="address" property="address"/>
+		<result column="gender" property="gender"/>
+		
+		<collection property="memo" resultMap="memoMap"></collection>
+	
+	</resultMap>
+	
+	
+	<resultMap type="com.test.mybatis.model.MemoDTO" id="memoMap">
+		<id column="mseq" property="seq"/>
+		<result column="memo" property="memo"/>
+		<result column="regdate" property="regdate"/>
+		<result column="aseq" property="aseq"/>
+	</resultMap>
+	
+	<select id="m19c" resultMap="addressMap2">
+	
+		select 
+	 		a.seq as addrseq, name, age, address, gender,
+	 		m.seq as mseq, memo, regdate, aseq
+	 	from tblAddress a
+    		left outer join tblMemo m
+        		on a.seq=m.aseq
+	</select>
+	
+	
 </mapper>
 
 

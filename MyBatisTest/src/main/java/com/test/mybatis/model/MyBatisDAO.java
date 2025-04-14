@@ -66,12 +66,47 @@ public interface MyBatisDAO {
 	
 	
 	List<AddressDTO> m13(AddressDTO dto);
-	//test
 	
 	
 	
 	//- <choose>
 	List <AddressDTO> m14(String type);
+	
+	
+	//열거형 조건
+	List<InsaDTO> m15(List<String> search);
+	
+	//insert  반복 없음
+	void m16(List<AddressDTO> data);
+	
+	
+	//- insert
+	void m17add(AddressDTO dto);
+	//방금 insert한 pk값을 가져옴
+	int m17get();
+	
+	
+	
+	
+	//- insert
+	//방금 insert한 pk값을 가져옴
+	void m17add2(AddressDTO dto);
+		
+	
+	List<AddressInfoDTO> m18a();
+	
+	
+	//addressdto에 infodto 넣음
+	List<AddressDTO> m18b();
+	
+	
+	
+	List<AddressMemoDTO> m19a();
+	
+	List<AddressDTO> m19b();
+	
+	List<AddressDTO> m19c();
+	
 	
 }
 
