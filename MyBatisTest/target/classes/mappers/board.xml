@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 보통 파일 이름을 적음 -->
+<!-- Mapper XML : SQL을 작성 -->
+<mapper namespace = "board">
+
+	<!-- 
+	<select id="list1" resultType = "com.test.mybatis.model.BoardDTO">
+		select * from tblBoard order by seq desc
+	</select>
+	 -->
+	 
+	 
+	 <resultMap type="com.test.mybatis.model.BoardDTO" id="boardMap">
+	
+	 </resultMap>
+	 
+	<select id="list1" resultMap = "boardMap>
+		select 
+			b.*,
+			c.subject as csubject,
+			c.name as cname,
+			c.regdate as cregdate 
+		from tblBoard b
+			left outer join tblComment c
+				on b.seq = c.bseq
+					order by b.seq desc
+	</select>
+	  
+</mapper>

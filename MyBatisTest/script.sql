@@ -172,7 +172,20 @@ insert into tblComment values(5, '소스 공유합니다~','아무개',default,2
 
 insert into tblComment values(6, '코드 수정했습니다.~','아무개',default,4);
 
+select * from tblBoard;
+select * from tblComment;
 
+commit;
+
+select 
+    b.*,
+    c.subject as csubject,
+    c.name as cname,
+    c.regdate as cregdate 
+from tblBoard b
+    left outer join tblComment c
+        on b.seq = c.bseq
+            order by b.seq desc;
 
 
 
