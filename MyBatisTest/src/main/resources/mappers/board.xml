@@ -1,31 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<!-- namespace에는 보통 파일 이름을 적음 -->
-<!-- Mapper XML : SQL을 작성 -->
-<mapper namespace = "board">
-
-	<!-- 
-	<select id="list1" resultType = "com.test.mybatis.model.BoardDTO">
-		select * from tblBoard order by seq desc
-	</select>
-	 -->
-	 
-	 
-	 <resultMap type="com.test.mybatis.model.BoardDTO" id="boardMap">
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="board">
 	
-	 </resultMap>
-	 
-	<select id="list1" resultMap = "boardMap>
-		select 
+	<!-- 
+	<select id="list1" resultType="com.test.mybatis.model.BoardDTO">
+		select * from tblBoard order by seq desc
+	</select> 
+	-->
+	<resultMap type="com.test.mybatis.model.CommentDTO" id="commentMap">
+		<result column="csubject" property="subject" />
+		<result column="cname" property="name" />
+		<result column="cregdate" property="regdate" />
+	</resultMap>
+	
+	<resultMap type="com.test.mybatis.model.BoardDTO" id="boardMap">
+		<id column="seq" property="seq" />
+		<result column="subject" property="subject" />
+		<result column="name" property="name" />
+		<result column="regdate" property="regdate" />
+		<collection property="comments" resultMap="commentMap"></collection>
+	</resultMap>
+	
+	<select id="list1" resultMap="boardMap">
+		select
 			b.*,
 			c.subject as csubject,
 			c.name as cname,
-			c.regdate as cregdate 
+			c.regdate as cregdate
 		from tblBoard b
 			left outer join tblComment c
 				on b.seq = c.bseq
 					order by b.seq desc
 	</select>
-	  
+	
+	<select id="list2" resultType="com.test.mybatis.model.BoardDTO">
+		select * from tblBoard order by seq desc
+	</select>
+	
+	<resultMap type="com.test.mybatis.model.CommentDTO" id="commentMap2">
+		<result column="csubject" property="subject" />
+		<result column="cname" property="name" />
+		<result column="cregdate" property="regdate" />
+	</resultMap>
+	
+	<resultMap type="com.test.mybatis.model.BoardDTO" id="boardMap2">
+		<id column="seq" property="seq" />
+		<result column="subject" property="subject" />
+		<result column="name" property="name" />
+		<result column="regdate" property="regdate" />
+		<collection property="comments" resultMap="commentMap2"></collection>
+	</resultMap>
+	
+	<select id="view" parameterType="String" resultMap="boardMap2">
+		select
+			b.*,
+			c.subject as csubject,
+			c.name as cname,
+			c.regdate as cregdate
+		from tblBoard b
+			left outer join tblComment c
+				on b.seq = c.bseq
+					where b.seq = #{seq}
+				
+	</select>
+	
 </mapper>
+
+
+
+
+

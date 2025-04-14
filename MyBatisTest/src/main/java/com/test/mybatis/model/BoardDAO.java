@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 @Repository
 @RequiredArgsConstructor
 public class BoardDAO {
+
 	private final SqlSessionTemplate template;
 
 	public List<BoardDTO> list1() {
@@ -17,4 +18,22 @@ public class BoardDAO {
 		return template.selectList("board.list1");
 	}
 
+	public List<BoardDTO> list2() {
+		
+		return template.selectList("board.list2");
+	}
+
+	public BoardDTO view(String seq) {
+		
+		return template.selectOne("board.view", seq);
+	}
+	
 }
+
+
+
+
+
+
+
+
