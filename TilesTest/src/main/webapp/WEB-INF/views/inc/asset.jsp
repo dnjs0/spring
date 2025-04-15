@@ -2,8 +2,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- views > inc > asset.jsp -->
-<link rel="stylesheet" href="/notiles/resources/css/main.css">
-
-
-
+<link rel="stylesheet" href="/tiles/resources/css/main.css">
 

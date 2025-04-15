@@ -1,4 +1,4 @@
-package com.test.notiles.controller;
+package com.test.tiles.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,17 +10,24 @@ public class MemberController {
 	
 	@GetMapping(value="/info.do")
 	public String info() {
-		return "member/info";
+		
+		return "member.info";
 	}
 	
 	@GetMapping(value="/history.do")
 	public String history() {
-		return "member/history";
+		
+		return "member.history";
 	}
 	
 	@GetMapping(value="/favorite.do")
 	public String favorite() {
-		return "member/favorite";
+		
+		return "member.favorite";
 	}
-	
+
 }
+
+
+
+

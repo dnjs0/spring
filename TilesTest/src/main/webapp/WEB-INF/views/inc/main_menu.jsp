@@ -3,10 +3,13 @@
 
 <!-- inc > main_menu.jsp -->
 <header>
-	<a href="/notiles/index.do">홈</a>
-	<a href="/notiles/member/info.do">회원</a>
-	<a href="/notiles/admin/log.do">관리자</a>
+	<a href="/tiles/index.do">홈</a>
+	<a href="/tiles/member/info.do">회원</a>
+	<a href="/tiles/admin/log.do">관리자</a>
 </header>
+
+
+
 
 
 

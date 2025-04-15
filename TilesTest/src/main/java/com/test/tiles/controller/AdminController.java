@@ -1,4 +1,4 @@
-package com.test.notiles.controller;
+package com.test.tiles.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,13 +10,21 @@ public class AdminController {
 	
 	@GetMapping(value="/log.do")
 	public String log() {
-		return "admin/log";
+		
+		return "admin.log";
 	}
 	
 	@GetMapping(value="/setting.do")
 	public String setting() {
-		return "admin/setting";
+		
+		return "admin.setting";
 	}
-	
 
 }
+
+
+
+
+
+
+

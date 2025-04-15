@@ -5,17 +5,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 	<style>
 		
 	</style>
 </head>
 <body>
-	<!-- history.jsp -->
+	<!-- member > history.jsp -->
+	<main>
+		<%@ include file="/WEB-INF/views/inc/main_menu.jsp" %>
+		<%@ include file="/WEB-INF/views/inc/member_menu.jsp" %>
+		<section>
+			<h2>회원 페이지</h2>
+			<div>활동 내역을 열람합니다.</div>
+		</section>
+		<%@ include file="/WEB-INF/views/inc/footer.jsp" %>
+	</main>	
 	
-	
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-	<script src="https://bit.ly/4cMuheh"></script>
 	<script>
 		
 	</script>

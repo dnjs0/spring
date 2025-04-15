@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+main{
+	width : 800px;
+}
+main > header{
+	background-color : gold;
+	height : 100px;
+	display : flex;
+	justify-content : flex-end;
+	align-items:center;
+}
+
+main > header > a{
+	text-decoration : none;
+	margin-right : 15px;	
+}
+
+main > nav{
+	background-color : cornflowerblue;
+	width : 200px;
+	height : 400px;
+	float : left;
+}
+main > nav a{
+	color: white;
+	text-decoration : none;
+}
+main > section{
+	background-color : yellowgreen;
+	width : 600px;
+	height : 400px;
+	float : left;
+}
+main > footer{
+	background-color : tomato;
+	height : 100px;
+	clear : both;
+	display : flex;
+	justify-content : center;
+	align-items:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
