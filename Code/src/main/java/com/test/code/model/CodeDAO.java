@@ -27,6 +27,14 @@ public class CodeDAO {
 		return template.insert("code.add",dto);
 	}
 	
+	public List<CodeDTO> list() {
+		return template.selectList("code.list");
+	}
+	
+	
+	public CodeDTO view(String seq) {
+		return template.selectOne("code.view",seq);
+	}
 
 }
 

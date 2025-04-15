@@ -1,6 +1,7 @@
 package com.test.code.model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -40,6 +41,19 @@ public class CodeDAOTests {
 		assertEquals(1, result);
 	}
 	
+	
+	@Test
+	public void testList() {
+		List<CodeDTO> list = dao.list();
+		assertEquals(4,list.size());
+	}
+	
+	@Test
+	public void testView() {
+		CodeDTO dto = dao.view("4");
+		assertNotNull(dto);
+		System.out.println(dto);
+	}
 	
 }
 

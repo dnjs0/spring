@@ -33,6 +33,52 @@
 		insert into tblCode(seq, subject, code, regdate, language)
 			values (seqCode.nextVal,#{subject},#{code},default, #{language})
 	</insert>
+	
+	
+	
+	
+	
+	
+	<resultMap type="ldto" id="categoryMap">
+		<id column="name" property="name"/>
+		<result column="icon" property="icon"/>
+		<result column="color" property="color"/>
+	</resultMap>
+	
+	<resultMap type="cdto" id="codeMap">
+		<id column="seq" property="seq"></id>
+		<result column="subject" property="subject"/>	
+		<result column="code" property="code"/>	
+		<result column="regdate" property="regdate"/>	
+		<result column="language" property="language"/>	
+		<association property="category" resultMap="categoryMap"></association>
+	</resultMap>
+	
+	<select id="list" resultMap="codeMap">
+		<!-- 방법1 : 서브쿼리
+		select 
+			tblCode.*,
+			(select icon from tblLanguage where name = tblCode.language) as icon,
+			(select color from tblLanguage where name = tblCode.language) as color
+		from tblCode
+			order by seq desc -->
+			
+			<!-- 방법2 : join -->
+			select *
+			from tblCode c
+			    inner join tblLanguage l
+			        on c.language = l.name
+			        	order by c.seq desc
+	</select>
+	
+	
+	<select id="view" parameterType="String" resultMap="codeMap">
+		select *
+			from tblCode c
+			    inner join tblLanguage l
+			        on c.language = l.name
+			        	where c.seq=#{seq}
+	</select>
 
 </mapper>
 

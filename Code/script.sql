@@ -34,6 +34,18 @@ create sequence seqCode;
 
 select * from tblcode;
 
+select 
+    tblCode.*,
+    (select icon from tblLanguage where name = tblCode.language) as icon,
+    (select color from tblLanguage where name = tblCode.language) as color
+from tblCode
+    order by seq desc;
+
+
+select *
+from tblCode c
+    inner join tblLanguage l
+        on c.language = l.language;
 
 
 

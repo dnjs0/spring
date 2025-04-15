@@ -14,4 +14,7 @@ public class CodeDTO {
 	private String code;
 	private String regdate;
 	private String language;
+	
+	//본인과 부모사이 관계 1:1 > object로 만들기
+	private LanguageDTO category;
 }
