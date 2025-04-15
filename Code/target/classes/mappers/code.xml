@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 보통 파일 이름을 적음 -->
+<!-- Mapper XML : SQL을 작성 -->
+<mapper namespace = "code">
+
+	<!-- 이런식
+	<insert id="">insert..</insert>
+	<update id="">update...</update>
+	<delete id="">delete...</delete>
+	<select id="">select...</select> 
+	-->
+	
+	<!-- mappers > code.xml -->
+	
+	<!-- test -->
+	<select id="time" resultType="String">
+		select sysdate from dual
+	</select>
+	
+	
+	
+	
+	
+	<select id="clist" resultType="ldto">
+		select * from tblLanguage
+	</select>
+
+
+
+	<insert id="add" parameterType="cdto">
+		insert into tblCode(seq, subject, code, regdate, language)
+			values (seqCode.nextVal,#{subject},#{code},default, #{language})
+	</insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
