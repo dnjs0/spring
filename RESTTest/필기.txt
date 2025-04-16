@@ -83,8 +83,14 @@ REST API 설계규칙
 ## REST 설정
 - JSON 데이터 생성 > 의존성 추가
 
+## 파일 
+- com.test.rest.controller > AddressController.java
+- com.test.rest.model > AddressDAO.java
+					  > AddressDTO.java
+- views > 안만든다 ㄷㄷ	(REST API - 브라우저 전용X)
+					   	(REST API - 순수 데이터 반환(JSON, XML))
 
-
+- src/test/java > com.test.rest.model > DBTests.java
 
 
 

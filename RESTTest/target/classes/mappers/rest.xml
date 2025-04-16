@@ -3,8 +3,23 @@
 
 <!-- namespace에는 보통 파일 이름을 적음 -->
 <!-- Mapper XML : SQL을 작성 -->
-<mapper namespace = "rest">
 
+
+<!-- src/main/resources > mappers > rest.xml -->
+<mapper namespace = "rest">
 	
+	<select id="time" resultType="String">
+		select sysdate from dual
+	</select>
+	
+	<select id="get" resultType="com.test.rest.model.AddressDTO">
+		select * from tblAddress
+			where age = (select max(age) from tblAddress)
+				and rownum =1
+	</select>
+	
+	<select id="m5" resultType="com.test.rest.model.AddressDTO">
+		select * from tblAddress
+	</select>
 
 </mapper>
