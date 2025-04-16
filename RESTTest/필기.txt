@@ -49,6 +49,13 @@ REST API 설계규칙
 	- ex01data.do > ajax 객체요청 > JSON 데이터반환
 	
 
+REST Client Tool
+1. Postman(***)
+2. VS Code(***)
+3. Insomnia
+4. Swagger(***)
+
+
 
 
 
