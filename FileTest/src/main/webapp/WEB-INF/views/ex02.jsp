@@ -11,10 +11,10 @@
 	</style>
 </head>
 <body>
-	<!-- ex01.jsp -->
-	<h1>파일 업로드 <small>단일 파일</small></h1>
+	<!-- ex02.jsp -->
+	<h1>파일 업로드 <small>다중 파일, multiple</small></h1>
 	
-	<form method="post" action="/file/ex01ok.do" enctype="multipart/form-data">
+	<form method="post" action="/file/ex02ok.do" enctype="multipart/form-data">
 	<table class="vertical">
 		<tr>
 			<th>텍스트</th>
@@ -22,7 +22,7 @@
 		</tr>
 		<tr>
 			<th>파일</th>
-			<td><input type="file" name="attach"></td>
+			<td><input type="file" name="attach" multiple></td>
 		</tr>
 	</table>
 	<div>
@@ -33,24 +33,34 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>
 	<script>
+		
 		$('form').submit(()=>{
-			//펌부파일의 크기를 검사
-			// > - 전송O
-			// > - 전송X
-			//alert($('input[name=attach]').val());
-			//alert($('input[name=attach]')[0].files[0].name);
-			//alert($('input[name=attach]')[0].files[0].size);
+			//페이지 이동 취소, 전송 취소
+			//event.preventDefault();
 			
-			let filename = $('input[name=attach]')[0].files[0].name;
-			let filesize = $('input[name=attach]')[0].files[0].size;
+			//첨부 파일들
+			//alert($('input[name=attach]')[0].files.length);
 			
-			if(checkFile(filename, filesize)){
-				//전송 금지 !!!
+			let totalSize = 0;
+			
+			Array.from($('input[name=attach]')[0].files).forEach(file=>{
+				//alert(file.name);
+				
+				//파일을 1개씩 유효성 검사
+				if(checkFile(file.name, file.size)){
+					event.preventDefault();
+					return false;
+				}
+				
+				totalSize += file.size;
+				
+			});
+			
+			if(totalSize > 52428800){
+				alert('총 파일 크기의 합이 50MB 이하만 가능합니다.');
 				event.preventDefault();
 				return false;
 			}
-			
-			//전송 진행~
 			
 			
 		});
@@ -77,6 +87,7 @@
 			return false; //if문 둘다 안걸리면 문제없는 파일
 			
 		}
+	
 	</script>
 </body>
 </html>

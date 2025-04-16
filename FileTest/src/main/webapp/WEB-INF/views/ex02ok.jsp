@@ -11,27 +11,18 @@
 	</style>
 </head>
 <body>
-	<!-- ex01ok.jsp -->
+	<!-- ex02ok.jsp -->
 	<h1>결과</h1>
 	<div>
 		<div>txt : ${txt}</div>
 	</div>
 	
+	<c:forEach items="${attach }" var="item">
 	<div>
-		<div><a href="/file/resources/files/${filename}" download>filename : ${filename}</a></div>
+		<div><a href="/file/resources/files/${item.originalFilename}" download>filename : ${item.originalFilename}</a></div>
 	</div>
-	
-	<div>
-		<div><a href="/file/download.do?filename=${filename}">filename : ${filename}</a></div>
-	</div>
-	
-	<c:if test="${filetype.startsWith('image')}">
-	<div>
-		<img src="/file/resources/files/${filename}" style="max-width:700px;">
-	</div>
-	</c:if>
-	
-	
+	</c:forEach>
+
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>

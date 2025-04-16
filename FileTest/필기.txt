@@ -29,8 +29,13 @@
 - views > ex01.jsp		//폼
 		> ex01ok.jsp	//다운로드
 
+		> ex02.jsp		//폼
+		> ex02ok.jsp	//다운로드
 
-
+		> ex03.jsp		
+		> ex03ok.jsp	
+		
+		> ex04.jsp		//ajax
 
 
 
