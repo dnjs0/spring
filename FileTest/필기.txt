@@ -1,0 +1,51 @@
+#File
+- 스프링 파일 업로드
+
+## 프로젝트 생성
+- FileTest > com.test.file
+
+
+## 기본 설정
+- 자바 버전 > 11
+	- pom.xml(메이븐 설정 파일)
+	- Project facets
+- 스프링 버전 > 5.0.7
+	- pom.xml
+- Servlet 버전 > 3.1.0
+- JSP 버전 > 2.3.3
+- 롬복 추가
+- log4j 버전 > 1.2.17
+- jUnit 버전 > 4.12
+
+
+
+## 파일 업로드 설정
+- 파일 저장 폴더 : webapp > resources > files
+- web.xml
+- servlet-context.xml
+
+##파일
+- com.test.file.controller > FileController.java
+- views > ex01.jsp		//폼
+		> ex01ok.jsp	//다운로드
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
