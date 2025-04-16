@@ -18,16 +18,82 @@ URI(URL) 작성
 - GET 		http://localhost/member/list.do?w=검색어	검색하기
 
 
-2. REST 방식
+2. REST 방식 > html을 get,post만 지원 나머지는 ajax용임
 [메서드]	[URI]
 - GET		http://localhost/member				목록보기
 - POST		http://localhost/member				추가하기
-- POST		http://localhost/member/1			수정하기
-- POST		http://localhost/member/1			삭제하기
+- PUT		http://localhost/member/1			수정하기
+- DELETE	http://localhost/member/1			삭제하기
 - GET 		http://localhost/member/검색어		검색하기
+- PATCH
+
+REST API 설계규칙
+1. URL에서 자원을 표시한다.(URI의 마지막에 명사로 표현)
+2. URI에 동사를 표시하지 않는다.(행동을 표시하지 말것!!)
+3. HTTP Method를 사용해서 행동을 표현한다.
+	a. GET		: 리소스 요청
+	b. POST		: 데이터 전달 + 서버측 생성 (ex. 글쓰기)
+	c. PUT		: 데이터 전달 + 서버측 수정 (전체 수정)
+	d. PATCH	: 데이터 전달 + 서버측 수정 (일부 수정)
+	e. DELETE	: 데이터 전달 + 서버측 삭제
+4. URI + Method = 완성
+5. 구분자는 '/'를 사용한다.
+6. URI의 마지막에 '/'를 적지 않는다.
+	- http://localhost/member	> member라는 자원(페이지)
+	- http://localhost/member/	> member라는 폴더
+7. '-' > 사용 가능(가독성)
+8. '_' > 사용 비권장(가독성)
+9. 확장자를 사용하지 않는다. (member.do)
+10. REST API의 요청 결과(반환값)는 순수 데이터만 돌려준다.(뷰 페이지 돌려주는 용도로 잘 안씀) > 활용도 증가(클라이언트를 가리지 않게됨)
+	- ex01.do > 브라우저가 요청한다면 > jsp 페이지 돌려줌
+	- ex01data.do > ajax 객체요청 > JSON 데이터반환
+	
 
 
 
 
 ## 프로젝트 생성
 - RESTTest
+
+
+## 기본 설정
+- 자바 버전 > 11
+	- pom.xml(메이븐 설정 파일)
+	- Project facets
+- 스프링 버전 > 5.0.7
+	- pom.xml
+- Servlet 버전 > 3.1.0
+- JSP 버전 > 2.3.3
+- 롬복 추가
+- log4j 버전 > 1.2.17
+- jUnit 버전 > 4.12
+
+## MyBatis 설정
+- MyBatis 의존성 추가 > 4개
+- DBCP 의존성 추가 > 1개
+- Log4j 의존성 추가 > 1개
+
+- 설정 : root-context.xml
+- resources > log4j.xml, log4jdbc.log4j2.properties 복사
+- resources > mappers > rest.xml
+			> config > mybatis-config.xml
+
+
+
+## REST 설정
+- JSON 데이터 생성 > 의존성 추가
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
