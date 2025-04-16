@@ -1,0 +1,33 @@
+## REST
+- REST, Representational State Transfer
+- 웹 상의 자원 (문서, 이미지, 동영상, 데이터 등)을 자원명으로 표시해서 자원의 상태를 주고 받기 위한 행위(표현법) > 아키텍처 스타일
+- 웹 상의 자원을 URI로 식별하자!!(***)
+- 행위를 메서드로 정의하자!!(***)
+- 표준안이 없다.
+
+- REST API or RESTful API
+
+
+URI(URL) 작성
+1. 기존 방식
+[메서드]	[URI]
+- GET		http://localhost/member/list.do				목록보기
+- POST		http://localhost/member/add.do				추가하기
+- POST		http://localhost/member/edit.do?seq=1		수정하기
+- POST		http://localhost/member/del.do?seq=1		삭제하기
+- GET 		http://localhost/member/list.do?w=검색어	검색하기
+
+
+2. REST 방식
+[메서드]	[URI]
+- GET		http://localhost/member				목록보기
+- POST		http://localhost/member				추가하기
+- POST		http://localhost/member/1			수정하기
+- POST		http://localhost/member/1			삭제하기
+- GET 		http://localhost/member/검색어		검색하기
+
+
+
+
+## 프로젝트 생성
+- RESTTest

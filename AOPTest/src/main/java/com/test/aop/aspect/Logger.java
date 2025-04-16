@@ -20,7 +20,8 @@ public class Logger {
 	//}
 
 	
-	@Pointcut("execution(* add(..))")
+	//@Pointcut("execution(* add(..))")
+	@Pointcut("execution(* *..AddressDAO.add(..))") //dao만 로그 기록 하고싶다!
 	public void pc1() {
 		//구현부 없음
 	}
