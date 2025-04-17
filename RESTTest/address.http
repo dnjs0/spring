@@ -1,0 +1,52 @@
+//address.http
+
+//추가하기
+POST http://localhost:8090/rest/address
+Content-Type: application/json
+
+{
+	"name" : "호호호",
+	"age" : 41,
+	"address" : "서울시 서초구 서초동",
+	"gender" : "m"
+}
+
+
+//구분자 넣어야함
+###
+
+
+//목록보기
+GET  http://localhost:8090/rest/address
+
+
+
+###
+
+//수정하기
+PUT http://localhost:8090/rest/address/2
+Content-Type: application/json
+
+{
+	"name" : "야옹이",
+	"age" : 1,
+	"address" : "서울시 서초구 서초동",
+	"gender" : "m"
+}
+
+
+
+###
+
+
+
+//삭제하기
+DELETE http://localhost:8090/rest/address/21
+
+
+###
+
+
+
+//검색하기
+GET http://localhost:8090/rest/address/2

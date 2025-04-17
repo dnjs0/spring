@@ -21,5 +21,103 @@
 	<select id="m5" resultType="com.test.rest.model.AddressDTO">
 		select * from tblAddress
 	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	<resultMap type="com.test.rest.model.MemoDTO" id="memoMap">
+		<id column="mseq" property="seq"/>
+		<result column="memo" property="memo"/>
+		<result column="regdate" property="regdate"/>
+		<result column="aseq" property="aseq"/>
+	</resultMap>
+	
+	<!-- 부모테이블 -->
+	<resultMap type="com.test.rest.model.AddressDTO" id="addressMap">
+		<id column="dseq" property="seq" />
+		<result column="name" property="name"/>
+		<result column="age" property="age"/>
+		<result column="address" property="address"/>
+		<result column="gender" property="gender"/>
+		<!--<association property=""></association>  1:1일 경우 -->
+		<collection property="memo" resultMap="memoMap"></collection> <!-- n:n일 경우 -->
+	</resultMap>
+	
+	
+	<select id="m6" resultMap="addressMap">
+		<!-- seq이름이 같음..별명 붙이기 -->
+		select
+			a.*,
+			m.*,
+			a.seq as dseq,
+			m.seq as mseq
+		from tbladdress a 
+			inner join tblmemo m 
+				on a.seq=m.aseq where a.seq=2
+	</select>
 
+	<insert id="add" parameterType="com.test.rest.model.AddressDTO">
+		insert into tblAddress (seq,name,age,address,gender)
+			values (seqAddress.nextVal, #{name}, #{age},#{address},#{gender})
+	</insert>
+	
+	
+	
+	
+	
+	<select id="list" resultType="com.test.rest.model.AddressDTO">
+		select * from tblAddress order by seq desc
+	</select>
+	
+	
+	<update id="edit" parameterType="com.test.rest.model.AddressDTO">
+		update tblAddress set
+			name=#{name},
+			age=#{age},
+			address=#{address},
+			gender = #{gender}
+				where seq=#{seq}
+	</update>
+	
+
+
+	<delete id="del" parameterType="String">
+		delete from tblAddress
+			where seq = #{seq}
+	</delete>
+	
+	
+	<select id="search" resultType="com.test.rest.model.AddressDTO">
+		select * from tblAddress
+			where seq = #{seq}
+	</select>
+	
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

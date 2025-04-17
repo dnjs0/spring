@@ -1,5 +1,7 @@
 package com.test.rest.model;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,4 +16,6 @@ public class AddressDTO {
 	private String age;
 	private String address;
 	private String gender;
+	
+	private List<MemoDTO> memo;
 }
