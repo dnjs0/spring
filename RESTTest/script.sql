@@ -14,3 +14,4 @@ from tbladdress a
         
         
 select * from tbladdress order by seq desc;
+select * from tblmemo;

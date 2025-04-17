@@ -2,6 +2,41 @@
 - 정규표현식 + 코드
 
 
+##파일
+- com.test.regex.controller > MainController.java
+- views > ex01.jsp
+
+
+
+## 정규 표현식 사용
+1. 자바에서
+2. SQL에서
+3. JavaScript에서
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
