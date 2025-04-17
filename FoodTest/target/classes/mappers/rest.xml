@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 보통 파일 이름을 적음 -->
+<!-- Mapper XML : SQL을 작성 -->
+
+
+<!-- src/main/resources > mappers > food.xml -->
+<mapper namespace = "food">
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
