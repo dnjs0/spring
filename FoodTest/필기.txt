@@ -1,12 +1,28 @@
 
 ## Food Test
-맛집 즐겨찾기 사이트
+- 맛집 즐겨찾기 사이트
+	- 맛집명
+	- 맛집 위치
+	- 추가 정보
+	
+	
+	
 
 
 
 
 
 
+
+##Rest 설정
+- 의존성 1개 추가
+
+## 파일
+- com.test.food.controller > MainController.java
+- com.test.food.model > FoodDAO.java
+					  > FoodDTO.java
+					  > CategoryDTO.java
+- views > main.jsp
 
 
 
