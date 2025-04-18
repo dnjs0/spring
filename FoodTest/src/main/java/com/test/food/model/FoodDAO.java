@@ -50,8 +50,15 @@ public class FoodDAO {
 		
 		return template.selectList("food.listMenu", food);
 	}
+
+	public FoodDTO getFood(String seq) {
+		
+		return template.selectOne("food.getFood", seq);
+	}
 	
 }
+
+
 
 
 

@@ -1,6 +1,6 @@
 package com.test.food.model;
 
-import org.springframework.stereotype.Component;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +16,13 @@ public class FoodDTO {
 	private String category;
 	private String lat;
 	private String lng;
+	
+	private String markerImage; //서브쿼리
+	
+	private String menu;
+	
+	private List<MenuDTO> mlist;
+	
 }
 
 

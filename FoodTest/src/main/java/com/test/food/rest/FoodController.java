@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.test.food.model.CategoryDTO;
@@ -78,8 +79,36 @@ public class FoodController {
 	)
 	@PostMapping("/food")
 	public int addFood(@ApiParam(value = "등록할 맛집 정보", required = true) @RequestBody FoodDTO dto) {
+				
+		//return dao.addFood(dto);
 		
-		return dao.addFood(dto);
+		int result = dao.addFood(dto);
+		
+		System.out.println(dto.getSeq());
+		
+		//dto.getSeq()
+		/*
+			짜장면: 5,000
+			짬뽕: 6,000
+		*/
+		String[] list = dto.getMenu().split("\n");
+		
+		for (String item : list) {
+			
+			String[] slist = item.trim().split(":");
+			
+			MenuDTO mdto = new MenuDTO();
+			mdto.setName(slist[0].trim()); //메뉴명
+			mdto.setPrice(slist[1].trim().replace(",","")); //가격
+			mdto.setFood(dto.getSeq()); //맛집 seq
+			
+			System.out.println("mdto: " + mdto);
+			
+			result *= dao.addMenu(mdto);		
+			
+		}
+		
+		return result;
 	}
 	
 	@ApiOperation(value = "맛집 조회하기", notes = "모든 맛집을 조회합니다.")
@@ -87,6 +116,12 @@ public class FoodController {
 	public List<FoodDTO> listFood() {
 		
 		return dao.listFood();
+	}
+	
+	@GetMapping("/food/{seq}")
+	public FoodDTO getFood(@PathVariable("seq") String seq) {
+		
+		return dao.getFood(seq);
 	}
 	
 	//POST + http://localhost:8090/food/menu > addMenu

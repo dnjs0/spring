@@ -15,11 +15,49 @@
 	</select>
 	
 	<insert id="addFood" parameterType="fdto">
-		insert into tblFood (seq, name, description, category, lat, lng) values (seqFood.nextVal, #{name}, #{description}, #{category}, #{lat}, #{lng})
+		<selectKey keyProperty="seq" order="BEFORE" resultType="String">
+			select seqFood.nextVal from dual
+		</selectKey>
+	
+		insert into tblFood (seq, name, description, category, lat, lng) values (#{seq}, #{name}, #{description}, #{category}, #{lat}, #{lng})
 	</insert>
 	
 	<select id="listFood" resultType="fdto">
 		select * from tblFood order by name asc
+	</select>
+	
+	<resultMap type="mdto" id="menuMap">
+		<id column="mseq" property="seq"/>
+		<result column="mname" property="name"/>
+		<result column="price" property="price"/>
+		<result column="food" property="food"/>
+	</resultMap>
+	
+	<resultMap type="fdto" id="foodMap">
+		<id column="fseq" property="seq"/>
+		<result column="fname" property="name"/>
+		<result column="description" property="description"/>
+		<result column="category" property="category"/>
+		<result column="lat" property="lat"/>
+		<result column="lng" property="lng"/>
+		<result column="markerImage" property="markerImage"/>
+		<collection property="mlist" resultMap="menuMap"></collection>
+	</resultMap>
+	
+	<select id="getFood" resultMap="foodMap" parameterType="String">
+		select 
+			f.seq as fseq,
+			f.name as fname,
+			f.*,
+			m.seq as mseq,
+			m.name as mname,
+			m.*,
+			(select marker from tblCategory where seq = f.category) as markerImage
+		from tblFood f
+			left outer join
+				tblMenu m
+					on f.seq = m.food 
+						where f.seq = #{seq}
 	</select>
 	
 	<insert id="addMenu" parameterType="mdto">
