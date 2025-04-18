@@ -22,7 +22,7 @@ public class DBTests {
 	@Test
 	public void testTemplate() {
 		assertNotNull(template);
-		//System.out.println(template.selectOne("rest.time").toString());
+		System.out.println(template.selectList("food.listCategory").toString());
 		
 		
 	}

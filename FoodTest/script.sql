@@ -37,7 +37,7 @@ insert into tblCategory values(5,'카페','bakery.png');
 
 
 
-
+select * from tblCategory;
 
 
 

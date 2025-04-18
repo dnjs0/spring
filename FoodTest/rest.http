@@ -1,0 +1,41 @@
+# 카테고리 목록 가져오기
+GET http://localhost:8090/food/category
+
+
+###
+
+#특정 카테고리 가져오기
+GET http://localhost:8090/food/category/1
+
+###
+
+# 맛집 등록하기
+POST http://localhost:8090/food/food
+Content-Type: application/json
+
+{
+  "name" : "메가커피",
+  "description" : "싸고 맛있는 커피",
+  "category" : 5,
+  "lat" : 37.499011,
+  "lng" : 127.033498
+}
+
+###
+# 맛집 목록가져오기
+GET http://localhost:8090/food/food
+
+###
+#메뉴 추가하기
+POST http://localhost:8090/food/menu
+Content-Type: application/json
+
+{
+  "name" : "카페라뗴",
+  "price" : 3500,
+  "food" : 1
+}
+
+###
+#맛집의 메뉴 가져오기
+GET http://localhost:8090/food/menu/1

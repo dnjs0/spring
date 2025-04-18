@@ -124,9 +124,14 @@
 				</tr>
 			</table>
 			<div>
-				<button class="ok" data-modal-ok="add">확인</button>
+				<button id = "btnOK" class="ok" data-modal-ok="add">확인</button>
 				<button class="cancel" data-modal-cancel="add">닫기</button>
 			</div>
+			
+			<!-- 마커좌표 -->
+			<input type="hidden" name="lat" id="lat">
+			<input type="hidden" name="lng" id="lng">
+			
 		</div>
 		
 	</main>
@@ -158,6 +163,38 @@
 	
 		const map2 = new kakao.maps.Map(container2, options2);
 
+		//팝업 지도 잘 보이게 처리
+		$('[data-modal-button="add"]').on('click',function(){
+			setTimeout(function(){
+				map2.relayout();
+			},100);
+		});
+		
+		
+		//지도에 핑 찍기
+		let m2 = null; //마커 변수
+		kakao.maps.event.addListener(map2, 'click', evt =>{
+			
+			if(m2 != null) m2.setMap(null); // 기존 마커 삭제
+			
+			const path = '/food/resources/marker/bakery.png';
+			const size = new kakao.maps.Size(48,48);
+			const op = {offset : new kakao.maps.Point(24,48)};
+			const img = new kakao.maps.MarkerImage(path,size,op);
+			
+			m2 = new kakao.maps.Marker({
+				position : evt.latLng,
+				image : img
+			});
+			
+			m2.setMap(map2);
+			
+			//마커위치 > 히든태그
+			$('#lat').val(evt.latLng.getLat());
+			$('#lng').val(evt.latLng.getLng());
+			 
+		});
+		
 		
 		
 		
@@ -170,6 +207,51 @@
 냉모밀 : 8,500`;
 		
 		$('textarea[name=menu]').attr('placeholder',guideText);
+		
+		
+		
+		//초기화
+		$.ajax({
+			type : 'GET',
+			url : 'http://localhost:8090/food/category',
+			dataType : 'json',
+			success : function(result) {
+				$(result).each((index, item) =>{
+					$('select[name=category]').append(`
+						<option value="\${item.seq}">\${item.name}</option>		
+					`);
+				});
+			},
+			error : function(a, b, c) {
+				console.log(a, b, c);
+			}
+		});
+		
+		
+		//맛집 등록 버튼
+		$('#btnOK').click(()=>{
+			$.ajax({
+				type : 'POST',
+				url : 'http://localhost:8090/food/food',
+				contentType = 'application/json; charset=UTF-8',	//주는거
+				data : JSON.stringify({								//주는거
+					category : $('select[name=category]').val(),
+					name : $('input[name=name]').val(),
+					description : $('textarea[name=description]').val(),
+					menu : $('textarea[name=description]').val(),
+					lat : $('input[name=lat]').val(),
+					lng : $('input[name=lng]').val()
+				}),			
+				dataType : 'json',	//받는거
+				success : function(result) {
+					
+				},
+				error : function(a, b, c) {
+					console.log(a, b, c);
+				}
+			});
+			
+		});
 		
 		
 		

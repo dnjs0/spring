@@ -7,7 +7,40 @@
 
 <!-- src/main/resources > mappers > food.xml -->
 <mapper namespace = "food">
+
+	<!-- tblCategory -->
+	<select id="listCategory" resultType="cdto">
+		select * from tblCategory order by seq asc
+	</select>
 	
+	
+	<select id="getCategory" resultType="cdto" parameterType="String">
+		select * from tblCategory where seq=#{seq} 
+	</select>
+	
+	
+	
+	<!-- tblFood -->
+	<insert id="addFood" parameterType="fdto">
+		insert into tblFood(seq, name, description, category, lat, lng)
+			values(seqFood.nextval, #{name}, #{description}, #{category}, #{lat}, #{lng})
+	</insert>
+	
+	<select id="listFood" resultType="fdto">
+		select * from tblFood order by name asc
+	</select>
+	
+	
+	<!-- tblMenu -->
+	<insert id="addMenu" parameterType="mdto">
+		insert into tblMenu (seq, name, price, food)
+			values(seqMenu.nextVal, #{name}, #{price}, #{food})
+	</insert>
+	
+	
+	<select id="listMenu" resultType="mdto" parameterType="String">
+		select * from tblMenu where food=#{food}
+	</select>
 	
 </mapper>
 

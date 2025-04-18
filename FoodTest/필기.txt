@@ -24,12 +24,39 @@
 					  > CategoryDTO.java
 - views > main.jsp
 
+## REST
+- com.test.food.rest > FoodController.java
+- rest.http
+
+
+## Swagger
+- REST API의 명세를 자동으로 문서화해주는 오픈소스 프레임워크
+- REST API의 EndPoint 명세
+- REST API의 파라미터 명세
+- REST API의 반환값 명세
+- 목적
+	1. 명세서(Documentation)
+	2. 테스트 도구
+	
+
+- pom.xml에 dependancy 2개 추가
+- Config 파일 설정 > com.test.food.config > SwaggerConfig.java
+- servlet-context.xml 설정
+- 테스트(http://localhost:8090/food/swagger-ui.html)
 
 
 
 
 
 
+
+## 작업 순서
+1. DB [홍길동 - DB]
+2. 컨트롤러 + DAO + DTO + View > 웹 기본 구축 [ 고양이 - 서버개발자]
+3. 클라이언트 페이지 [ 가나디 - 클라이언트 개발자]
+4. DAO > 단위테스트 [ 코끼리 - 서버 개발자]
+5. REST API Server [ 코끼리 - 서버 개발자]
+6. ( 2 + 3 ) + 5 [ 가나디 - 클라이언트 개발자]
 
 
 
