@@ -7,10 +7,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-
 public class MenuDTO {
 	private String seq;
 	private String name;
 	private String price;
 	private String food;
 }
+
+
+
+
+

@@ -22,17 +22,14 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@Api(value="맛집",tags="맛집 API")
+@Api(value = "맛집 API", tags = "맛집 API")
 public class FoodController {
 	
 	private final FoodDAO dao;
 	
-	//	http://localhost:8090/food/category
-	
-	//GET +	http://localhost:8090/food/category > listCategory
-	//GET +	http://localhost:8090/food/category/1 > getCategory
-	
-	@ApiOperation(value="모든 카테고리 조회", notes="모든 카테고리 조회합니다")
+	//GET + http://localhost:8090/food/category > listCategory
+	//GET + http://localhost:8090/food/category/1 > getCategory
+	@ApiOperation(value = "카테고리 목록 조회", notes = "모든 카테고리를 조회합니다.")
 	@ApiResponses({
 		@ApiResponse(
 			code = 200,
@@ -42,16 +39,18 @@ public class FoodController {
 		),
 		@ApiResponse(
 			code = 404,
-			message = "카테고리가 없습니다."
+			message = "카테고리 없음"
 		)
-	})
-	@GetMapping("/category")
+	})	
+	@GetMapping("/category") 
 	public List<CategoryDTO> listCategory() {
+		
 		List<CategoryDTO> list = dao.listCategory();
+		
 		return list;
 	}
 	
-	@ApiOperation(value="특정 카테고리 조회", notes="특정 카테고리 조회합니다.")
+	@ApiOperation(value = "특정 카테고리 조회", notes = "카테고리 번호를 특정 카테고리를 조회합니다.")
 	@ApiResponses({
 		@ApiResponse(
 			code = 200,
@@ -60,47 +59,66 @@ public class FoodController {
 		),
 		@ApiResponse(
 			code = 404,
-			message = "카테고리가 없습니다."
+			message = "카테고리 없음"
 		)
 	})
 	@GetMapping("/category/{seq}")
-	public List<CategoryDTO> getCategory(@ApiParam(value="카테고리 번호", required=true, example="1") @PathVariable("seq") String seq) {
+	public CategoryDTO getCategory(@ApiParam(value = "카테고리 번호", required = true, example = "1") @PathVariable("seq") String seq) {
+		
 		return dao.getCategory(seq);
 	}
 	
-	//POST  +	http://localhost:8090/food/food > addFood
-	//GET   +	http://localhost:8090/food/food > listFood
+	//POST + http://localhost:8090/food/food > addFood
+	//GET + http://localhost:8090/food/food > listFood
 	
-	@ApiOperation(value="맛집 등록", notes="맛집의 정보를 등록합니다.")
+	@ApiOperation(value = "맛집 등록", notes = "맛집의 정보를 등록합니다.")
 	@ApiResponse(
 		code = 200,
-		message = "1:성공, 0:실패"
+		message = "1: 성공, 0: 실패"
 	)
 	@PostMapping("/food")
-	public int addFood(@ApiParam(value="등록할 맛집 정보",required=true)  @RequestBody FoodDTO dto) {
+	public int addFood(@ApiParam(value = "등록할 맛집 정보", required = true) @RequestBody FoodDTO dto) {
+		
 		return dao.addFood(dto);
 	}
 	
-	@ApiOperation(value="맛집 조회", notes="모든 맛집을 조회합니다.")
+	@ApiOperation(value = "맛집 조회하기", notes = "모든 맛집을 조회합니다.")
 	@GetMapping("/food")
-	public List<FoodDTO> listFood(){
+	public List<FoodDTO> listFood() {
+		
 		return dao.listFood();
 	}
 	
-	//POST  +	http://localhost:8090/food/menu > addMenu
-	//GET   +	http://localhost:8090/food/menu/1 > listMenu
+	//POST + http://localhost:8090/food/menu > addMenu
+	//GET + http://localhost:8090/food/menu/1 > listMenu
 	
-	@ApiOperation(value="메뉴 등록", notes="특정 맛집의 메뉴를 등록합니다.")
+	@ApiOperation(value = "메뉴 등록", notes = "특정 맛집의 메뉴를 등록합니다.")
 	@PostMapping("/menu")
 	public int addMenu(@RequestBody MenuDTO dto) {
+		
 		return dao.addMenu(dto);
 	}
 	
-	@ApiOperation(value="메뉴 조회", notes="특정 맛집의 메뉴를 조회합니다.")
+	@ApiOperation(value = "메뉴 조회", notes = "특정 맛집의 메뉴를 조회합니다.")
 	@GetMapping("/menu/{food}")
 	public List<MenuDTO> listMenu(@PathVariable("food") String food) {
+		
 		return dao.listMenu(food);
 	}
 	
 	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

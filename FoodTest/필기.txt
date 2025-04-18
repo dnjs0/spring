@@ -1,46 +1,74 @@
-
-## Food Test
-- 맛집 즐겨찾기 사이트
+# FoodTest
+- 맛집 즐겨찾기
 	- 맛집명
 	- 맛집 위치
 	- 추가 정보
-	
-	
-	
 
+## 프로젝트 생성
+- "FoodTest" + Spring MVC Project > "com.test.food" > Finish
 
+## 프로젝트 설정
+- 자바 버전 > 11
+	- pom.xml(메이븐 설정 파일)
+	- Project facets
+- 스프링 버전 > 5.0.7
+	- pom.xml
+- Servlet 버전 > 3.1.0
+- JSP 버전 > 2.3.3
+- 롬복 추가
+- log4j 버전 > 1.2.17
+- jUnit 버전 > 4.12
 
+## MyBatis 설정
+- MyBatis 의존성 추가 > 4개
+- DBCP 의존성 추가 > 1개
+- Log4j2 의존성 추가 > 1개
+- 설정
+	- root-context.xml
+	- src/main/resources > log4j.xml, log4jdbc.log4j2.properties 복사
+	- src/main/resources > mappers > *.xml
+	- src/main/resources > config > mybatis-config.xml
+- 단위 테스트
+	- src/test/java > "com.test.code.model" > "DBTests.java"	
 
-
-
-
-##Rest 설정
-- 의존성 1개 추가
+## REST 설정
+- 의존성 추가 > 1개
 
 ## 파일
-- com.test.food.controller > MainController.java
-- com.test.food.model > FoodDAO.java
-					  > FoodDTO.java
-					  > CategoryDTO.java
-- views > main.jsp
+- FoodTest > "script.sql"
+- "com.test.food.controller" > "MainController.java"
+- "com.test.food.model" > "FoodDAO.java"
+                        > "CategoryDTO.java"
+                        > "FoodDTO.java"
+                        > "MenuDTO.java"
+- views > "main.jsp"
+
+
+## 작업 순서
+
+1. DB [AAA - DB담당]
+2. 컨트롤러 + DAO + DTO + View > 웹 기본 구축 [CCC - 서버 개발자]
+3. 클라이언트 페이지 [BBB - 클라이언트 개발자]
+4. DAO > 단위 테스트 [DDD - 서버 개발자]
+5. REST API Server [DDD - 서버 개발자]
+6. (2 + 3) + 5 [BBB - 클라이언트 개발자]
+
 
 ## REST
-- com.test.food.rest > FoodController.java
-- rest.http
-
+- "com.test.food.rest" > "FoodController.java"
+- FoodTest > "rest.http"
 
 ## Swagger
-- REST API의 명세를 자동으로 문서화해주는 오픈소스 프레임워크
-- REST API의 EndPoint 명세
-- REST API의 파라미터 명세
-- REST API의 반환값 명세
+- REST API의 명세를 자동으로 문서화해주는 오픈 소스 프레임워크
+	- REST API EndPoint 명세
+	- REST API 파라미터 명세
+	- REST API 반환값 명세 
 - 목적
 	1. 명세서(Documentation)
-	2. 테스트 도구
-	
+	2. 테스트 도구	
 
-- pom.xml에 dependancy 2개 추가
-- Config 파일 설정 > com.test.food.config > SwaggerConfig.java
+- pom.xml > 2개
+- Config 파일 설정 > "com.test.food.config" > "SwaggerConfig.java"
 - servlet-context.xml 설정
 - 테스트(http://localhost:8090/food/swagger-ui.html)
 
@@ -50,13 +78,6 @@
 
 
 
-## 작업 순서
-1. DB [홍길동 - DB]
-2. 컨트롤러 + DAO + DTO + View > 웹 기본 구축 [ 고양이 - 서버개발자]
-3. 클라이언트 페이지 [ 가나디 - 클라이언트 개발자]
-4. DAO > 단위테스트 [ 코끼리 - 서버 개발자]
-5. REST API Server [ 코끼리 - 서버 개발자]
-6. ( 2 + 3 ) + 5 [ 가나디 - 클라이언트 개발자]
 
 
 
@@ -66,3 +87,7 @@
 
 
 
+
+
+
+	

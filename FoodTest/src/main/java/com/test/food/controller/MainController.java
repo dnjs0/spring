@@ -18,8 +18,14 @@ public class MainController {
 		
 		//http://localhost:8090/food
 		
-		
 		return "main";
 	}
-	
+
 }
+
+
+
+
+
+
+

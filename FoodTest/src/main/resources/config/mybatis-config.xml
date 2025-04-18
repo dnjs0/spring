@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-config.dtd">
-
-<!-- mybatis-config.xml -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<!-- Mapper XML에서 사용한 클래스의 별칭 -->
 	<typeAliases>
-		<typeAlias type="com.test.food.model.CategoryDTO" alias="cdto"></typeAlias>
-		<typeAlias type="com.test.food.model.FoodDTO" alias="fdto"></typeAlias>
-		<typeAlias type="com.test.food.model.MenuDTO" alias="mdto"></typeAlias>
+		<typeAlias type="com.test.food.model.CategoryDTO" alias="cdto" />
+		<typeAlias type="com.test.food.model.FoodDTO" alias="fdto" />
+		<typeAlias type="com.test.food.model.MenuDTO" alias="mdto" />
 	</typeAliases>
-
 </configuration>
+
+
+
+
+
+

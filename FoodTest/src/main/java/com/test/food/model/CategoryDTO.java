@@ -12,12 +12,19 @@ import lombok.ToString;
 @ApiModel(description = "카테고리 DTO")
 public class CategoryDTO {
 	
-	@ApiModelProperty(value="카테고리 번호", example="1")
+	@ApiModelProperty(value = "카테고리 번호", example = "1")
 	private String seq;
 	
-	@ApiModelProperty(value="카테고리명", example="한식")
+	@ApiModelProperty(value = "카테고리명", example = "한식")
 	private String name;
 	
-	@ApiModelProperty(value="마커 이미지명", example="food.png")
+	@ApiModelProperty(value = "마커 이미지명", example = "food.png")
 	private String marker;
 }
+
+
+
+
+
+
+
